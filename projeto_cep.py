@@ -25,15 +25,15 @@ def calcular_risco_consumidor(tamanho_amostra, itens_aceitaveis, taxa_defeitos_i
 def main():
     st.title("Cálculo de Inspeção e Aceitação de Lotes")
 
-    tamanho_lote = st.number_input("Informe o tamanho do lote:", min_value=1, value=0)
-    tamanho_amostra = st.number_input("Informe o tamanho da amostra:", min_value=1, value=0)
-    itens_aceitaveis = st.number_input("Informe o número de itens aceitáveis:", min_value=0, value=0)
-    taxa_defeitos = st.number_input("Informe a taxa de defeitos esperada (0 a 1):", min_value=0.0, max_value=1.0, value=0)
-    numero_lotes = st.number_input("Informe o número de lotes:", min_value=1, value=0)
-    custo_unitario = st.number_input("Informe o custo unitário:", min_value=0.0, value=0)
-    custo_lote_rejeitado = st.number_input("Informe o custo de deslocamento por lote rejeitado:", min_value=0.0, value=0)
-    taxa_defeitos_aceitaveis = st.number_input("Informe a taxa de defeitos aceitável (NQA) (0 a 1):", min_value=0.0, max_value=1.0, value=0)
-    taxa_defeitos_inaceitaveis = st.number_input("Informe a taxa de defeitos inaceitável (PTDL) (0 a 1):", min_value=0.0, max_value=1.0, value=0)
+    tamanho_lote = st.number_input("Informe o tamanho do lote:", min_value=1, value=100)
+    tamanho_amostra = st.number_input("Informe o tamanho da amostra:", min_value=1, value=10)
+    itens_aceitaveis = st.number_input("Informe o número de itens aceitáveis:", min_value=0, value=2)
+    taxa_defeitos = st.number_input("Informe a taxa de defeitos esperada (0 a 1):", min_value=0.0, max_value=1.0, value=0.05)
+    numero_lotes = st.number_input("Informe o número de lotes:", min_value=1, value=10)
+    custo_unitario = st.number_input("Informe o custo unitário:", min_value=0.0, value=10.0)
+    custo_lote_rejeitado = st.number_input("Informe o custo de deslocamento por lote rejeitado:", min_value=0.0, value=100.0)
+    taxa_defeitos_aceitaveis = st.number_input("Informe a taxa de defeitos aceitável (NQA) (0 a 1):", min_value=0.0, max_value=1.0, value=0.05)
+    taxa_defeitos_inaceitaveis = st.number_input("Informe a taxa de defeitos inaceitável (PTDL) (0 a 1):", min_value=0.0, max_value=1.0, value=0.1)
 
     if st.button("Calcular"):
         taxa_aceitacao = calcular_probabilidade_aceitacao(tamanho_amostra, itens_aceitaveis, taxa_defeitos)
